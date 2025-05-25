@@ -26,46 +26,7 @@ const homeScreendata = {
     },
   ],
   currentArticles: [
-    {
-      id: '664a1e1f1a2b3c4d5e6f7101',
-      image:
-        'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
-      title: 'Key Immigration Changes: Q4 2023 Updates',
-      description:
-        'A summary of the most important immigration policy changes in Q4 2023, with practical advice for compliance and strategy.',
-      longDescription:
-        'This article provides a comprehensive overview of the latest immigration policy changes that occurred in the fourth quarter of 2023. It covers new regulations, government announcements, and their implications for businesses and individuals. The article also offers practical advice for ensuring compliance and adapting strategies to the evolving legal landscape.',
-      category: 'Immigration',
-      duration: '5 min read',
-      isNew: true,
-      rating: 4,
-    },
-    {
-      id: '664a1e1f1a2b3c4d5e6f7102',
-      image:
-        'https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg',
-      title: 'Cost Optimization: What Data Reveals',
-      description:
-        'Explore data-driven methods for reducing business costs while maintaining productivity, with real-world case studies.',
-      longDescription:
-        'Delve into the latest data-driven approaches for optimizing costs in modern businesses. This article analyzes trends, presents case studies, and discusses how organizations can leverage analytics to identify savings opportunities without sacrificing productivity or quality.',
-      category: 'Business',
-      duration: '8 min read',
-      rating: 3,
-    },
-    {
-      id: '664a1e1f1a2b3c4d5e6f7103',
-      image:
-        'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg',
-      title: 'Revitalizing Global Mobility for Sustainability',
-      description:
-        'How global mobility programs can support corporate sustainability, with best practices and industry insights.',
-      longDescription:
-        'This article explores the intersection of global mobility and sustainability, highlighting how companies can design mobility programs that align with environmental and social responsibility goals. It includes best practices, industry insights, and examples of successful initiatives.',
-      category: 'Sustainability',
-      duration: '10 min read',
-      rating: 5,
-    },
+  
     {
       id: '664a1e1f1a2b3c4d5e6f7104',
       image:
@@ -305,13 +266,53 @@ const homeScreendata = {
       duration: '5 min read',
       rating: 4,
     },
+      {
+      id: '664a1e1f1a2b3c4d5e6f7101',
+      image:
+        'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
+      title: 'Key Immigration Changes: Q4 2023 Updates',
+      description:
+        'A summary of the most important immigration policy changes in Q4 2023, with practical advice for compliance and strategy.',
+      longDescription:
+        'This article provides a comprehensive overview of the latest immigration policy changes that occurred in the fourth quarter of 2023. It covers new regulations, government announcements, and their implications for businesses and individuals. The article also offers practical advice for ensuring compliance and adapting strategies to the evolving legal landscape.',
+      category: 'Immigration',
+      duration: '5 min read',
+      isNew: true,
+      rating: 4,
+    },
+    {
+      id: '664a1e1f1a2b3c4d5e6f7102',
+      image:
+        'https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg',
+      title: 'Cost Optimization: What Data Reveals',
+      description:
+        'Explore data-driven methods for reducing business costs while maintaining productivity, with real-world case studies.',
+      longDescription:
+        'Delve into the latest data-driven approaches for optimizing costs in modern businesses. This article analyzes trends, presents case studies, and discusses how organizations can leverage analytics to identify savings opportunities without sacrificing productivity or quality.',
+      category: 'Business',
+      duration: '8 min read',
+      rating: 3,
+    },
+    {
+      id: '664a1e1f1a2b3c4d5e6f7103',
+      image:
+        'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg',
+      title: 'Revitalizing Global Mobility for Sustainability',
+      description:
+        'How global mobility programs can support corporate sustainability, with best practices and industry insights.',
+      longDescription:
+        'This article explores the intersection of global mobility and sustainability, highlighting how companies can design mobility programs that align with environmental and social responsibility goals. It includes best practices, industry insights, and examples of successful initiatives.',
+      category: 'Sustainability',
+      duration: '10 min read',
+      rating: 5,
+    },
   ],
   popularArticles: [
     {
       id: '664a1e1f1a2b3c4d5e6f7201',
       image:
         'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
-      title: 'Immigration Policy: Global Impacts in 202355',
+      title: 'Immigration Policy: Global Impacts in 2023',
       description:
         'A global perspective on immigration policy changes in 2023 and their effects on businesses and individuals.',
       longDescription: `
