@@ -59,6 +59,32 @@ app.get(
   })
 );
 
+// GET: Home Screen
+app.get(
+  '/api/home-screen',
+  asyncHandler(async (req, res) => {
+    const combinedArticles = getAllArticles();
+    const lastUsedPrompts = combinedArticles
+      .slice(0, 2)
+      .map((article) => article.title);
+
+    res.json({
+      currentArticles: optimizeArticles(
+        homeScreendata.currentArticles.slice(0, 3),
+        355,
+        192
+      ),
+      popularArticles: optimizeArticles(
+        homeScreendata.popularArticles.slice(0, 3),
+        355,
+        192
+      ),
+      promptLibrary: homeScreendata.promptLibrary.slice(0, 3),
+      lastUsedPrompts,
+    });
+  })
+);
+
 // GET: All current articles
 app.get(
   '/api/current-articles',
@@ -137,32 +163,6 @@ app.get(
       return res.status(404).json({ error: 'Article not found' });
     }
     res.json(article);
-  })
-);
-
-// GET: Home Screen
-app.get(
-  '/api/home-screen',
-  asyncHandler(async (req, res) => {
-    const combinedArticles = getAllArticles();
-    const lastUsedPrompts = combinedArticles
-      .slice(0, 2)
-      .map((article) => article.title);
-
-    res.json({
-      currentArticles: optimizeArticles(
-        homeScreendata.currentArticles.slice(0, 3),
-        355,
-        192
-      ),
-      popularArticles: optimizeArticles(
-        homeScreendata.popularArticles.slice(0, 3),
-        355,
-        192
-      ),
-      promptLibrary: homeScreendata.promptLibrary.slice(0, 3),
-      lastUsedPrompts,
-    });
   })
 );
 
