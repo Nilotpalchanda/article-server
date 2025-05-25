@@ -9,31 +9,28 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Helper: Combine all articles (no unnecessary array copying)
+// Utility: Combine all articles
 const getAllArticles = () => [
   ...homeScreendata.currentArticles,
   ...homeScreendata.popularArticles,
 ];
 
-// Async handler utility
-const asyncHandler = (fn) => (req, res, next) => {
+// Utility: Generate MongoDB-like ObjectId
+const generateObjectId = () =>
+  Math.floor(Date.now() / 1000).toString(16) +
+  'xxxxxxxxxxxxxxxx'.replace(/[x]/g, () =>
+    ((Math.random() * 16) | 0).toString(16)
+  );
+
+// Utility: Async handler
+const asyncHandler = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
-};
 
 // GET: Home preview data
 app.get(
   '/api/home',
   asyncHandler(async (req, res) => {
-    const generateObjectId = () =>
-      Math.floor(Date.now() / 1000).toString(16) +
-      'xxxxxxxxxxxxxxxx'.replace(/[x]/g, () =>
-        ((Math.random() * 16) | 0).toString(16)
-      );
-
-    const allCategories = [
-      ...homeScreendata.currentArticles,
-      ...homeScreendata.popularArticles,
-    ]
+    const allCategories = getAllArticles()
       .map((article) => article.category)
       .filter(Boolean)
       .reduce((acc, cat) => {
@@ -120,89 +117,80 @@ app.get(
 );
 
 // GET: Single article by ID
-app.get('/api/article/:id', (req, res) => {
-  const { id } = req.params;
-  const article = getAllArticles().find((a) => String(a.id) === String(id));
-  if (!article) {
-    return res.status(404).json({ error: 'Article not found' });
-  }
-  res.json(article);
-});
+app.get(
+  '/api/article/:id',
+  asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const article = getAllArticles().find((a) => String(a.id) === String(id));
+    if (!article) {
+      return res.status(404).json({ error: 'Article not found' });
+    }
+    res.json(article);
+  })
+);
 
-// GET: New Home Screen
+// GET: Home Screen
 app.get(
   '/api/home-screen',
   asyncHandler(async (req, res) => {
-    // Utility to get N random items from an array
-    const getRandomItems = (arr, n) => {
-      const shuffled = arr.slice().sort(() => 0.5 - Math.random());
-      return shuffled.slice(0, n);
-    };
-
-    // Combine current and popular articles
-    const combinedArticles = [
-      ...homeScreendata.currentArticles,
-      ...homeScreendata.popularArticles,
-    ];
-
-    // Get 2 random articles and return their titles as an array of strings
-    const lastUsedPromts = getRandomItems(combinedArticles, 2).map(
-      (article) => article.title
-    );
+    const combinedArticles = getAllArticles();
+    const lastUsedPrompts = combinedArticles.slice(0, 2).map((article) => article.title);
 
     res.json({
-      currentArticles: getRandomItems(homeScreendata.currentArticles, 3),
-      popularArticles: getRandomItems(homeScreendata.popularArticles, 3),
-      promptLibrary: getRandomItems(homeScreendata.promptLibrary, 3),
-      lastUsedPromts,
+      currentArticles: homeScreendata.currentArticles.slice(0, 3),
+      popularArticles: homeScreendata.popularArticles.slice(0, 3),
+      promptLibrary: homeScreendata.promptLibrary.slice(0, 3),
+      lastUsedPrompts,
     });
   })
 );
 
-// GET: All Promts
+// GET: All Prompts
 app.get(
-  '/api/all-promts',
+  '/api/all-prompts',
   asyncHandler(async (req, res) => {
     res.json(homeScreendata.promptLibrary);
   })
 );
 
-//GET: AI Chat Response
-app.get('/api/chat', (req, res) => {
-  const query = req.query.q?.trim().toLowerCase();
-  if (!query) {
-    return res.status(400).json({ error: 'Query param "q" is required' });
-  }
+// GET: AI Chat Response
+app.get(
+  '/api/chat',
+  asyncHandler(async (req, res) => {
+    const query = req.query.q?.trim().toLowerCase();
+    if (!query) {
+      return res.status(400).json({ error: 'Query param "q" is required' });
+    }
 
-  const allArticles = [
-    ...homeScreendata.currentArticles,
-    ...homeScreendata.popularArticles,
-  ];
+    const allArticles = getAllArticles();
 
-  // Find the most accurate match by title (case-insensitive, exact match first, then includes)
-  let match =
-    allArticles.find((a) => a.title.toLowerCase() === query) ||
-    allArticles.find((a) => a.title.toLowerCase().includes(query)) ||
-    allArticles.find((a) => a.description.toLowerCase() === query) ||
-    allArticles.find((a) => a.description.toLowerCase().includes(query));
+    // Find the most accurate match by title or description
+    let match =
+      allArticles.find((a) => a.title.toLowerCase() === query) ||
+      allArticles.find((a) => a.title.toLowerCase().includes(query)) ||
+      allArticles.find((a) => a.description.toLowerCase() === query) ||
+      allArticles.find((a) => a.description.toLowerCase().includes(query));
 
-  // Find almost exact matches (excluding the main match)
-  const similarArticles = allArticles
-    .filter((a) => match && a.id !== match.id)
-    .slice(0, 3)
-    .map((a) => ({ id: a.id, title: a.title }));
+    // Find similar articles (excluding the main match)
+    const similarArticles = allArticles
+      .filter((a) => match && a.id !== match.id)
+      .slice(0, 3)
+      .map((a) => ({ id: a.id, title: a.title }));
 
-  res.json({
-    aiResponse: match?.description || 'No relevant information found.',
-    suggestions:
-      similarArticles.length > 0
-        ? [...similarArticles.map((a) => a.title)]
-        : [],
-    source: match
-      ? { id: match.id , title: match.title, description: match.description, category: match.category }
-      : { id : '', title: '', description: '' , category: '' },
-  });
-});
+    res.json({
+      aiResponse: match?.description || 'No relevant information found.',
+      suggestions: similarArticles.map((a) => a.title),
+      source: match
+        ? {
+            id: match.id,
+            title: match.title,
+            description: match.description,
+            category: match.category,
+          }
+        : { id: '', title: '', description: '', category: '' },
+    });
+  })
+);
 
 // 404 handler
 app.use((req, res) => {
