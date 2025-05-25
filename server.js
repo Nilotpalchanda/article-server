@@ -22,6 +22,17 @@ const generateObjectId = () =>
     ((Math.random() * 16) | 0).toString(16)
   );
 
+// Optimize images in all articles and promptLibrary to use .webp format
+const optimizeImageUrl = (url, w = 268, h = 128) =>
+  `${url}?auto=compress&fit=crop&w=${w}&h=${h}&format=webp`;
+
+// Helper to deeply clone and optimize image fields in articles/prompts
+const optimizeArticles = (articles, w, h) =>
+  articles.map((article) => ({
+    ...article,
+    image: optimizeImageUrl(article.image, w, h),
+  }));
+
 // Utility: Async handler
 const asyncHandler = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
@@ -52,7 +63,7 @@ app.get(
 app.get(
   '/api/current-articles',
   asyncHandler(async (req, res) => {
-    res.json(homeScreendata.currentArticles);
+    res.json(optimizeArticles(homeScreendata.currentArticles));
   })
 );
 
@@ -60,7 +71,7 @@ app.get(
 app.get(
   '/api/popular-articles',
   asyncHandler(async (req, res) => {
-    res.json(homeScreendata.popularArticles);
+    res.json(optimizeArticles(homeScreendata.popularArticles));
   })
 );
 
@@ -134,11 +145,21 @@ app.get(
   '/api/home-screen',
   asyncHandler(async (req, res) => {
     const combinedArticles = getAllArticles();
-    const lastUsedPrompts = combinedArticles.slice(0, 2).map((article) => article.title);
+    const lastUsedPrompts = combinedArticles
+      .slice(0, 2)
+      .map((article) => article.title);
 
     res.json({
-      currentArticles: homeScreendata.currentArticles.slice(0, 3),
-      popularArticles: homeScreendata.popularArticles.slice(0, 3),
+      currentArticles: optimizeArticles(
+        homeScreendata.currentArticles.slice(0, 3),
+        355,
+        192
+      ),
+      popularArticles: optimizeArticles(
+        homeScreendata.popularArticles.slice(0, 3),
+        355,
+        192
+      ),
       promptLibrary: homeScreendata.promptLibrary.slice(0, 3),
       lastUsedPrompts,
     });
@@ -199,11 +220,13 @@ app.use((req, res) => {
 
 // Error handler
 app.use((err, req, res, next) => {
+  // eslint-disable-next-line no-console
   console.error(err.stack);
   res.status(500).json({ error: 'Internal server error' });
 });
 
 // Start server
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server is running at http://localhost:${PORT}`);
 });
