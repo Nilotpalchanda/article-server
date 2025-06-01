@@ -1,6 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const { homeScreendata } = require('./data/homeData.js');
+const articleAtlasRoute = require('./articleatlas-server.js'); // Import the ArticleAtlas API routes
+const {
+  optimizeArticles,
+  getAllArticles,
+  asyncHandler,
+  generateObjectId,
+} = require('./utils.js');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,39 +16,11 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Utility: Combine all articles
-const getAllArticles = () => [
-  ...homeScreendata.currentArticles,
-  ...homeScreendata.popularArticles,
-];
-
-// Utility: Generate MongoDB-like ObjectId
-const generateObjectId = () =>
-  Math.floor(Date.now() / 1000).toString(16) +
-  'xxxxxxxxxxxxxxxx'.replace(/[x]/g, () =>
-    ((Math.random() * 16) | 0).toString(16)
-  );
-
-// Optimize images in all articles and promptLibrary to use .webp format
-const optimizeImageUrl = (url, w = 268, h = 128) =>
-  `${url}?auto=compress&fit=crop&w=${w}&h=${h}&format=webp`;
-
-// Helper to deeply clone and optimize image fields in articles/prompts
-const optimizeArticles = (articles, w, h) =>
-  articles.map((article) => ({
-    ...article,
-    image: optimizeImageUrl(article.image, w, h),
-  }));
-
-// Utility: Async handler
-const asyncHandler = (fn) => (req, res, next) =>
-  Promise.resolve(fn(req, res, next)).catch(next);
-
 // GET: Home preview data
 app.get(
   '/api/home',
   asyncHandler(async (req, res) => {
-    const allCategories = getAllArticles()
+    const allCategories = getAllArticles(homeScreendata)
       .map((article) => article.category)
       .filter(Boolean)
       .reduce((acc, cat) => {
@@ -63,7 +42,7 @@ app.get(
 app.get(
   '/api/home-screen',
   asyncHandler(async (req, res) => {
-    const combinedArticles = getAllArticles();
+    const combinedArticles = getAllArticles(homeScreendata);
     const lastUsedPrompts = combinedArticles
       .slice(0, 2)
       .map((article) => article.title);
@@ -109,7 +88,7 @@ app.get(
     if (!query) {
       return res.status(400).json({ error: 'Query param "q" is required' });
     }
-    const suggestions = getAllArticles()
+    const suggestions = getAllArticles(homeScreendata)
       .filter(({ title }) => title.toLowerCase().includes(query))
       .map(({ id, title }) => ({ id, title }));
     res.json(suggestions);
@@ -133,7 +112,7 @@ app.get(
       });
     }
 
-    const filtered = getAllArticles().filter(
+    const filtered = getAllArticles(homeScreendata).filter(
       ({ title, description }) =>
         title.toLowerCase().includes(query) ||
         description.toLowerCase().includes(query)
@@ -158,7 +137,9 @@ app.get(
   '/api/article/:id',
   asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const article = getAllArticles().find((a) => String(a.id) === String(id));
+    const article = getAllArticles(homeScreendata).find(
+      (a) => String(a.id) === String(id)
+    );
     if (!article) {
       return res.status(404).json({ error: 'Article not found' });
     }
@@ -183,7 +164,7 @@ app.get(
       return res.status(400).json({ error: 'Query param "q" is required' });
     }
 
-    const allArticles = getAllArticles();
+    const allArticles = getAllArticles(homeScreendata);
 
     // Find the most accurate match by title or description
     let match =
@@ -212,6 +193,9 @@ app.get(
     });
   })
 );
+
+// ArticleAtlas APIS
+app.use('/atlas-api', articleAtlasRoute); // Now '/api/home2' will be handled by homeRoutes.js
 
 // 404 handler
 app.use((req, res) => {

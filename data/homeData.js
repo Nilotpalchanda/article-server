@@ -26,7 +26,6 @@ const homeScreendata = {
     },
   ],
   currentArticles: [
-  
     {
       id: '664a1e1f1a2b3c4d5e6f7104',
       image:
@@ -34,8 +33,20 @@ const homeScreendata = {
       title: 'Leading Global Business Transformation',
       description:
         'A guide to managing change across international teams, focusing on culture, technology, and stakeholder engagement.',
-      longDescription:
-        'Gain insights into the complexities of leading business transformation on a global scale. This article covers strategies for managing cultural differences, leveraging technology, and engaging stakeholders to drive successful change initiatives.',
+      longDescription: `<div class="flex w-full flex-col gap-1 empty:hidden first:pt-[3px]"><div class="markdown prose dark:prose-invert w-full break-words dark"><p data-start="0" data-end="141">Here’s a summary of <strong data-start="20" data-end="140">"Leading Global Business Transformation"</strong>:</p>
+<p data-start="143" data-end="351">Managing change across international teams requires understanding and addressing cultural differences, leveraging the right technologies, and ensuring effective stakeholder engagement. Key strategies include:</p>
+<ul data-start="353" data-end="919">
+<li data-start="353" data-end="555">
+<p data-start="355" data-end="555"><strong data-start="355" data-end="366">Culture</strong>: Acknowledge and respect diverse cultural values, communication styles, and decision-making approaches. Promote inclusivity and cross-cultural collaboration through awareness and training.</p>
+</li>
+<li data-start="557" data-end="745">
+<p data-start="559" data-end="745"><strong data-start="559" data-end="573">Technology</strong>: Use collaborative tools and platforms that support real-time communication and project tracking across time zones. Ensure all team members have equal access and training.</p>
+</li>
+<li data-start="747" data-end="919">
+<p data-start="749" data-end="919"><strong data-start="749" data-end="775">Stakeholder Engagement</strong>: Involve key stakeholders early and regularly. Tailor communication to local expectations and ensure transparency to build trust and alignment.</p>
+</li>
+</ul>
+<p data-start="921" data-end="1043" data-is-last-node="" data-is-only-node="">Success in international change management depends on adaptability, empathy, and proactive communication across all areas.</p></div></div>`,
       category: 'Leadership',
       duration: '7 min read',
       isPremium: true,
@@ -45,11 +56,41 @@ const homeScreendata = {
       id: '664a1e1f1a2b3c4d5e6f7105',
       image:
         'https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg',
-      title: 'Remote Work: New Challenges and Solutions',
+      title: 'Freelancing Work: New Challenges and Solutions',
       description:
-        'An analysis of remote work trends, including team management, flexibility, and building a resilient culture.',
-      longDescription:
-        'This article examines the evolving landscape of remote work, discussing the latest challenges faced by organizations and employees. It provides actionable solutions for team management, fostering flexibility, and building a resilient remote work culture.',
+        'An analysis of freelancing work trends, including team management, flexibility, and building a resilient culture.',
+      longDescription: `<div class="flex w-full flex-col gap-1 empty:hidden first:pt-[3px]"><div class="markdown prose dark:prose-invert w-full break-words light"><p data-start="0" data-end="58"><strong data-start="0" data-end="56">Summary: <em data-start="11" data-end="54">Freelancing Work: New Challenges and Solutions</em></strong></p>
+<p data-start="60" data-end="216">Freelancing work has transformed how organizations operate, offering flexibility and access to a wider talent pool. However, it brings new challenges, including:</p>
+<ul data-start="218" data-end="647">
+<li data-start="218" data-end="325">
+<p data-start="220" data-end="325"><strong data-start="220" data-end="246">Communication Barriers</strong>: Lack of face-to-face interaction can lead to misunderstandings and isolation.</p>
+</li>
+<li data-start="326" data-end="452">
+<p data-start="328" data-end="452"><strong data-start="328" data-end="353">Productivity Concerns</strong>: Distractions at home and difficulty in separating work from personal life can affect performance.</p>
+</li>
+<li data-start="453" data-end="553">
+<p data-start="455" data-end="553"><strong data-start="455" data-end="477">Team Collaboration</strong>: Maintaining team cohesion and managing projects remotely can be difficult.</p>
+</li>
+<li data-start="554" data-end="647">
+<p data-start="556" data-end="647"><strong data-start="556" data-end="579">Cybersecurity Risks</strong>: Increased reliance on digital tools raises data security concerns.</p>
+</li>
+</ul>
+<p data-start="649" data-end="671"><strong data-start="649" data-end="670">Solutions include</strong>:</p>
+<ul data-start="672" data-end="950">
+<li data-start="672" data-end="755">
+<p data-start="674" data-end="755">Using collaboration tools (e.g., Slack, Zoom, Trello) for seamless communication.</p>
+</li>
+<li data-start="756" data-end="808">
+<p data-start="758" data-end="808">Setting clear expectations, goals, and boundaries.</p>
+</li>
+<li data-start="809" data-end="892">
+<p data-start="811" data-end="892">Encouraging regular check-ins and virtual social activities to build team spirit.</p>
+</li>
+<li data-start="893" data-end="950">
+<p data-start="895" data-end="950">Investing in cybersecurity infrastructure and training.</p>
+</li>
+</ul>
+<p data-start="952" data-end="1068" data-is-last-node="" data-is-only-node="">Overall, success in freelancing work depends on adaptability, strong digital practices, and maintaining human connection.</p></div></div>`,
       category: 'General',
       duration: '6 min read',
       rating: 3,
@@ -61,8 +102,26 @@ const homeScreendata = {
       title: 'AI in Everyday Life: Practical Impacts',
       description:
         'Examining how AI tools are changing daily routines, with a focus on benefits and ethical considerations.',
-      longDescription:
-        'Explore the practical impacts of artificial intelligence in daily life, from smart assistants to personalized recommendations. The article also addresses the ethical considerations and potential challenges of widespread AI adoption.',
+      longDescription: `<div class="flex w-full flex-col gap-1 empty:hidden first:pt-[3px]"><div class="markdown prose dark:prose-invert w-full break-words light"><p data-start="0" data-end="55"><strong data-start="0" data-end="53">Summary: <em data-start="11" data-end="51">AI in Everyday Life: Practical Impacts</em></strong></p>
+<p data-start="57" data-end="222">Artificial Intelligence (AI) is increasingly integrated into daily activities, enhancing convenience, efficiency, and decision-making. Its practical impacts include:</p>
+<ul data-start="224" data-end="800">
+<li data-start="224" data-end="359">
+<p data-start="226" data-end="359"><strong data-start="226" data-end="246">Smart Assistants</strong>: AI powers devices like Siri, Alexa, and Google Assistant, helping users with tasks, reminders, and information.</p>
+</li>
+<li data-start="360" data-end="485">
+<p data-start="362" data-end="485"><strong data-start="362" data-end="387">Personalized Services</strong>: Streaming platforms, online shopping, and social media use AI to recommend content and products.</p>
+</li>
+<li data-start="486" data-end="574">
+<p data-start="488" data-end="574"><strong data-start="488" data-end="502">Healthcare</strong>: AI aids in diagnostics, treatment planning, and managing patient data.</p>
+</li>
+<li data-start="575" data-end="682">
+<p data-start="577" data-end="682"><strong data-start="577" data-end="595">Transportation</strong>: Navigation apps, ride-sharing algorithms, and self-driving car technology rely on AI.</p>
+</li>
+<li data-start="683" data-end="800">
+<p data-start="685" data-end="800"><strong data-start="685" data-end="704">Home Automation</strong>: AI enables smart thermostats, lighting, and security systems for energy efficiency and safety.</p>
+</li>
+</ul>
+<p data-start="802" data-end="964" data-is-last-node="" data-is-only-node="">Overall, AI improves quality of life, but it also raises concerns about privacy, job displacement, and ethical use, requiring thoughtful regulation and oversight.</p></div></div>`,
       category: 'General',
       duration: '4 min read',
       rating: 2,
@@ -74,8 +133,26 @@ const homeScreendata = {
       title: 'Resilient Supply Chains: Strategies for 2024',
       description:
         'Strategies for building supply chains that withstand global disruptions, with a focus on technology and transparency.',
-      longDescription:
-        'This article discusses the importance of building resilient supply chains in the face of global disruptions. It highlights strategies involving technology adoption, transparency, and risk management to ensure continuity and efficiency.',
+      longDescription: `<div class="flex w-full flex-col gap-1 empty:hidden first:pt-[3px]"><div class="markdown prose dark:prose-invert w-full break-words light"><p data-start="0" data-end="61"><strong data-start="0" data-end="59">Summary: <em data-start="11" data-end="57">Resilient Supply Chains: Strategies for 2024</em></strong></p>
+<p data-start="63" data-end="235">In 2024, building resilient supply chains is a top priority due to recent disruptions from global crises, climate change, and geopolitical tensions. Key strategies include:</p>
+<ul data-start="237" data-end="763">
+<li data-start="237" data-end="332">
+<p data-start="239" data-end="332"><strong data-start="239" data-end="258">Diversification</strong>: Reducing dependency on single suppliers or regions to avoid bottlenecks.</p>
+</li>
+<li data-start="333" data-end="453">
+<p data-start="335" data-end="453"><strong data-start="335" data-end="361">Digital Transformation</strong>: Using AI, IoT, and data analytics for real-time visibility and predictive decision-making.</p>
+</li>
+<li data-start="454" data-end="556">
+<p data-start="456" data-end="556"><strong data-start="456" data-end="488">Nearshoring and Localization</strong>: Moving production closer to demand to reduce risks and lead times.</p>
+</li>
+<li data-start="557" data-end="656">
+<p data-start="559" data-end="656"><strong data-start="559" data-end="577">Sustainability</strong>: Incorporating eco-friendly practices to meet regulatory and consumer demands.</p>
+</li>
+<li data-start="657" data-end="763">
+<p data-start="659" data-end="763"><strong data-start="659" data-end="678">Risk Management</strong>: Developing contingency plans and building strategic reserves to handle disruptions.</p>
+</li>
+</ul>
+<p data-start="765" data-end="901" data-is-last-node="" data-is-only-node="">A resilient supply chain in 2024 balances efficiency, flexibility, and sustainability to adapt to ongoing uncertainty and global change.</p></div></div>`,
       category: 'General',
       duration: '9 min read',
       rating: 4,
@@ -146,9 +223,9 @@ const homeScreendata = {
         'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
       title: 'The Future of Work: Trends and Predictions',
       description:
-        'Exploring the future of work, including remote work, AI integration, and evolving workplace dynamics.',
+        'Exploring the future of work, including freelancing work, AI integration, and evolving workplace dynamics.',
       longDescription:
-        'This article examines the future of work, focusing on trends such as remote work, AI integration, and the changing dynamics of the modern workplace.',
+        'This article examines the future of work, focusing on trends such as freelancing work, AI integration, and the changing dynamics of the modern workplace.',
       category: 'General',
       duration: '5 min read',
       rating: 4,
@@ -221,11 +298,11 @@ const homeScreendata = {
     {
       id: '664a1e1f1a2b3c4d5e6f7119',
       image: 'https://images.pexels.com/photos/267614/pexels-photo-267614.jpeg',
-      title: 'Remote Work: Future Trends and Challenges',
+      title: 'Freelancing Work: Future Trends and Challenges',
       description:
-        'Exploring the future of remote work, including trends, challenges, and opportunities for businesses.',
+        'Exploring the future of freelancing work, including trends, challenges, and opportunities for businesses.',
       longDescription:
-        'This article discusses the future of remote work, analyzing emerging trends, potential challenges, and the opportunities that remote work presents for businesses and employees.',
+        'This article discusses the future of freelancing work, analyzing emerging trends, potential challenges, and the opportunities that freelancing work presents for businesses and employees.',
       category: 'General',
       duration: '5 min read',
       rating: 3,
@@ -233,11 +310,11 @@ const homeScreendata = {
     {
       id: '664a1e1f1a2b3c4d5e6f7120',
       image: 'https://images.pexels.com/photos/267614/pexels-photo-267614.jpeg',
-      title: 'Building a Resilient Remote Work Culture',
+      title: 'Building a Resilient Freelancing Work Culture',
       description:
-        'How to create a resilient remote work culture and leverage technology for collaboration and flexibility.',
+        'How to create a resilient freelancing work culture and leverage technology for collaboration and flexibility.',
       longDescription:
-        'Learn how to build a resilient remote work culture by leveraging technology, fostering collaboration, and promoting flexibility among distributed teams.',
+        'Learn how to build a resilient freelancing work culture by leveraging technology, fostering collaboration, and promoting flexibility among distributed teams.',
       category: 'General',
       duration: '5 min read',
       rating: 4,
@@ -245,11 +322,11 @@ const homeScreendata = {
     {
       id: '664a1e1f1a2b3c4d5e6f7121',
       image: 'https://images.pexels.com/photos/267614/pexels-photo-267614.jpeg',
-      title: 'The Future of Remote Work',
+      title: 'The Future of Freelancing Work',
       description:
-        'Exploring the future of remote work, including trends, challenges, and opportunities for businesses.',
+        'Exploring the future of freelancing work, including trends, challenges, and opportunities for businesses.',
       longDescription:
-        'A forward-looking article on the evolution of remote work, examining the latest trends, anticipated challenges, and the opportunities that lie ahead for organizations.',
+        'A forward-looking article on the evolution of freelancing work, examining the latest trends, anticipated challenges, and the opportunities that lie ahead for organizations.',
       category: 'General',
       duration: '5 min read',
       rating: 3,
@@ -257,16 +334,16 @@ const homeScreendata = {
     {
       id: '664a1e1f1a2b3c4d5e6f7122',
       image: 'https://images.pexels.com/photos/267614/pexels-photo-267614.jpeg',
-      title: 'Building a Resilient Remote Work Culture',
+      title: 'Building a Resilient Freelancing Work Culture',
       description:
-        'How to create a resilient remote work culture and leverage technology for collaboration and flexibilityaaaanilotpal.',
+        'How to create a resilient freelancing work culture and leverage technology for collaboration and flexibilityaaaanilotpal.',
       longDescription:
-        'This article provides a detailed guide to creating a resilient remote work culture, emphasizing the use of technology for collaboration and the importance of flexibility in distributed teams.',
+        'This article provides a detailed guide to creating a resilient freelancing work culture, emphasizing the use of technology for collaboration and the importance of flexibility in distributed teams.',
       category: 'General',
       duration: '5 min read',
       rating: 4,
     },
-      {
+    {
       id: '664a1e1f1a2b3c4d5e6f7101',
       image:
         'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
@@ -400,11 +477,11 @@ const homeScreendata = {
       id: '664a1e1f1a2b3c4d5e6f7205',
       image:
         'https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg',
-      title: 'Remote Work Culture: Building Resilience',
+      title: 'Freelancing Work Culture: Building Resilience',
       description:
-        'How to create a resilient remote work culture and leverage technology for collaboration and flexibility.',
+        'How to create a resilient freelancing work culture and leverage technology for collaboration and flexibility.',
       longDescription:
-        'Learn how to foster a resilient remote work culture by leveraging technology, encouraging collaboration, and promoting flexibility within distributed teams.',
+        'Learn how to foster a resilient freelancing work culture by leveraging technology, encouraging collaboration, and promoting flexibility within distributed teams.',
       category: 'General',
       duration: '6 min read',
       rating: 3,
@@ -501,9 +578,9 @@ const homeScreendata = {
         'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg',
       title: 'Future Workspaces: Adapting to Change',
       description:
-        'How businesses are adapting to the future of work, including remote work, AI, and evolving workplace dynamics.',
+        'How businesses are adapting to the future of work, including freelancing work, AI, and evolving workplace dynamics.',
       longDescription:
-        'This article explores how businesses are adapting their workspaces for the future, focusing on remote work, AI integration, and evolving workplace dynamics.',
+        'This article explores how businesses are adapting their workspaces for the future, focusing on freelancing work, AI integration, and evolving workplace dynamics.',
       category: 'General',
       duration: '5 min read',
       rating: 4,
@@ -576,11 +653,11 @@ const homeScreendata = {
     {
       id: '664a1e1f1a2b3c4d5e6f7219',
       image: 'https://images.pexels.com/photos/267614/pexels-photo-267614.jpeg',
-      title: 'The Future of Remote Work',
+      title: 'The Future of Freelancing Work',
       description:
-        'Exploring the future of remote work, including trends, challenges, and opportunities for businesses.',
+        'Exploring the future of freelancing work, including trends, challenges, and opportunities for businesses.',
       longDescription:
-        'A comprehensive look at the future of remote work, including emerging trends, anticipated challenges, and the opportunities for businesses and employees.',
+        'A comprehensive look at the future of freelancing work, including emerging trends, anticipated challenges, and the opportunities for businesses and employees.',
       category: 'General',
       duration: '5 min read',
       rating: 3,
@@ -588,11 +665,11 @@ const homeScreendata = {
     {
       id: '664a1e1f1a2b3c4d5e6f7220',
       image: 'https://images.pexels.com/photos/267614/pexels-photo-267614.jpeg',
-      title: 'Building a Resilient Remote Work Culture',
+      title: 'Building a Resilient Freelancing Work Culture',
       description:
-        'How to create a resilient remote work culture and leverage technology for collaboration and flexibility.',
+        'How to create a resilient freelancing work culture and leverage technology for collaboration and flexibility.',
       longDescription:
-        'This article provides guidance on building a resilient remote work culture, focusing on technology, collaboration, and flexibility for distributed teams.',
+        'This article provides guidance on building a resilient freelancing work culture, focusing on technology, collaboration, and flexibility for distributed teams.',
       category: 'General',
       duration: '5 min read',
       rating: 4,
@@ -601,95 +678,181 @@ const homeScreendata = {
   promptLibrary: [
     {
       id: '664a1e1f1a2b3c4d5e6f7301',
-      title: 'AI-Powered Marketing Strategies',
+      title: 'Leading Global Business Transformation',
       description:
         'Explore how AI can enhance your marketing strategies, from customer segmentation to personalized content.',
       category: 'Marketing',
       duration: '5 min read',
       rating: 4,
+      gptSummary:
+        'This article discusses the role of AI in transforming global marketing strategies, emphasizing its use in targeting customer segments and delivering personalized content to boost engagement.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7302',
-      title: 'Data-Driven Decision Making',
+      title: 'Freelancing Work: New Challenges and Solutions',
       description:
         'Learn how to leverage data analytics for informed decision-making in your organization.',
       category: 'Business Intelligence',
       duration: '6 min read',
       rating: 5,
+      gptSummary:
+        'The piece highlights the importance of data analytics in navigating freelancing work challenges, offering solutions for better decision-making and organizational efficiency.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7303',
-      title: 'Enhancing Customer Experience with AI',
+      title: 'Resilient Supply Chains: Strategies for 2024',
       description:
         'Discover how AI can transform customer experience through personalized interactions and support.',
       category: 'Customer Experience',
       duration: '7 min read',
       rating: 4,
+      gptSummary:
+        'This article explores strategies for building resilient supply chains while focusing on how AI can enhance customer experience through tailored interactions and service improvements.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7304',
-      title: 'AI in Supply Chain Management',
+      title: 'Business Cost Reduction: Expert Insights',
       description:
         'Explore the role of AI in optimizing supply chain operations and improving efficiency.',
       category: 'Supply Chain',
       duration: '8 min read',
       rating: 3,
+      gptSummary:
+        'A detailed look at using AI to reduce operational costs, with insights into optimizing supply chain processes and enhancing overall efficiency.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7305',
-      title: 'AI for Financial Forecasting',
+      title: 'Revitalizing Global Mobility for Sustainability',
       description:
         'Learn how AI can enhance financial forecasting and risk management in your organization.',
       category: 'Finance',
       duration: '5 min read',
       rating: 4,
+      gptSummary:
+        'This article explains how AI is transforming financial functions by improving forecasting accuracy and strengthening risk management capabilities for sustainable mobility strategies.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7306',
-      title: 'AI in Human Resources',
+      title: 'AI Role in Business Transformation',
       description:
         'Discover how AI can streamline HR processes, from recruitment to employee engagement.',
       category: 'Human Resources',
       duration: '6 min read',
       rating: 5,
+      gptSummary:
+        'A comprehensive overview of AI applications in HR, highlighting how technology is streamlining recruitment, enhancing employee engagement, and driving organizational change.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7307',
-      title: 'AI for Predictive Maintenance',
+      title: 'Sustainable Business Practices for Growth',
       description:
         'Explore how AI can improve predictive maintenance strategies in manufacturing and operations.',
       category: 'Manufacturing',
       duration: '7 min read',
       rating: 4,
+      gptSummary:
+        'The article outlines how AI is fostering sustainable growth in manufacturing through advanced predictive maintenance and smarter operational strategies.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7308',
-      title: 'AI in Healthcare',
+      title: 'Financial Resilience in Uncertain Times',
       description:
         'Learn about the applications of AI in healthcare, from diagnostics to patient care.',
       category: 'Healthcare',
       duration: '8 min read',
       rating: 5,
+      gptSummary:
+        'This piece explores how AI is enhancing resilience in healthcare by revolutionizing diagnostics, improving patient care, and supporting clinical decision-making.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7309',
-      title: 'AI for Cybersecurity',
+      title: 'Digital Marketing in 2024: Key Strategies',
       description:
         'Discover how AI can enhance cybersecurity measures and protect your organization from threats.',
       category: 'Cybersecurity',
       duration: '5 min read',
       rating: 4,
+      gptSummary:
+        'The article focuses on the intersection of AI and cybersecurity, presenting strategies to safeguard digital marketing efforts and protect organizational assets from evolving threats.',
     },
     {
       id: '664a1e1f1a2b3c4d5e6f7310',
-      title: 'AI in Retail',
+      title: 'Building a Resilient Freelancing Work Culture',
       description:
         'Explore the impact of AI on retail, from inventory management to personalized shopping experiences.',
       category: 'Retail',
       duration: '6 min read',
       rating: 3,
+      gptSummary:
+        'This read examines how AI is reshaping the retail landscape by enhancing inventory systems and creating more personalized, engaging shopping experiences.',
     },
-  ]
+    {
+      id: '664a1e1f1a2b3c4d5e6f7311',
+      title: 'Education’s Digital Future',
+      description:
+        'Learn how AI can transform logistics and transportation management for better efficiency.',
+      category: 'Logistics',
+      duration: '7 min read',
+      rating: 4,
+      gptSummary:
+        'An insightful look at how AI is revolutionizing logistics and transportation management, leading to improved efficiency and smarter supply chain solutions.',
+    },
+    {
+      id: '664a1e1f1a2b3c4d5e6f7312',
+      title: 'Smart Cities: Urban Sustainability in Action',
+      description:
+        'Discover the role of AI in enhancing public safety and emergency response systems.',
+      category: 'Public Safety',
+      duration: '8 min read',
+      rating: 5,
+      gptSummary:
+        'This article discusses how AI is improving public safety and emergency response systems, making urban environments safer and more responsive to crises.',
+    },
+    {
+      id: '664a1e1f1a2b3c4d5e6f7313',
+      title: 'Breaking the Stigma: Mental Health at Work',
+      description:
+        'Explore how AI can support mental health initiatives in the workplace.',
+      category: 'Workplace Wellness',
+      duration: '5 min read',
+      rating: 4,
+      gptSummary:
+        'An exploration of how AI technologies are being utilized to support mental health initiatives in the workplace, promoting employee well-being and productivity.',
+    },
+    {
+      id: '664a1e1f1a2b3c4d5e6f7314',
+      title: 'E-Commerce Trends: Staying Ahead in 2024',
+      description:
+        'Learn about the future of AI in e-commerce and its impact on consumer behavior.',
+      category: 'E-Commerce',
+      duration: '6 min read',
+      rating: 3,
+      gptSummary:
+        'This article provides insights into the future of AI in e-commerce, focusing on its transformative effects on consumer behavior and shopping experiences.',
+    },
+    {
+      id: '664a1e1f1a2b3c4d5e6f7315',
+      title: 'Future Workspaces: Adapting to Change',
+      description:
+        'Discover how AI is reshaping workspaces and enhancing employee productivity.',
+      category: 'Workplace Innovation',
+      duration: '7 min read',
+      rating: 4,
+      gptSummary:
+        'A forward-looking piece on how AI is transforming workspaces, enhancing employee productivity, and adapting to the changing nature of work.',
+    },
+    {
+      id: '664a1e1f1a2b3c4d5e6f7316',
+      title: 'Transforming International Teams',
+      description:
+        'Explore the role of AI in enhancing collaboration and communication in international teams.',
+      category: 'Team Collaboration',
+      duration: '8 min read',
+      rating: 5,
+      gptSummary:
+        'This article discusses how AI is facilitating better collaboration and communication in international teams, breaking down barriers and enhancing global teamwork.',
+    },
+  ],
 };
 
 module.exports = { homeScreendata };
