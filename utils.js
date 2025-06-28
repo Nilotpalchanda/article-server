@@ -38,15 +38,18 @@ const getAllArticles = (homeScreendata) => [
 ];
 
 // Route: Get articles (current or popular)
-const handleArticlesRequest = (sourceArticles) => (req, res) => {
+const handleArticlesRequest = (sourceArticles, filterValue) => (req, res) => {
   const limit = parseInt(req.query.limit, 10);
-  const articles = getArticlesWithId(sourceArticles, limit);
-  if (limit && Number.isInteger(limit) && limit > 0) {
-    return res.json({
-      articles: optimizeArticles(articles, 357, 192),
-      total: articles.length,
-    });
+  let articles = getArticlesWithId(sourceArticles, limit);
+
+  if (filterValue && filterValue.trim() !== '' && filterValue !== 'All') {
+    articles = articles.filter(
+      (article) =>
+        article.category &&
+        article.category.toLowerCase().includes(filterValue.toLowerCase())
+    );
   }
+
   res.json({
     articles: optimizeArticles(articles, 357, 192),
     total: articles.length,

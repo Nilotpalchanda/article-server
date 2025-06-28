@@ -278,7 +278,7 @@ const homeScreendata = {
         'Innovative sustainable business practices that can drive growth and responsibility in the coming year.',
       longDescription:
         'This article highlights innovative sustainable business practices that organizations can adopt in 2024 to drive growth while maintaining social and environmental responsibility.',
-      category: 'General',
+      category: 'Testing',
       duration: '5 min read',
       rating: 4,
     },
@@ -291,7 +291,7 @@ const homeScreendata = {
         'Exploring the impact of AI on business operations, decision-making, and customer engagement.',
       longDescription:
         'An exploration of how artificial intelligence is transforming business operations, enhancing decision-making, and improving customer engagement across industries.',
-      category: 'General',
+      category: 'Commerce',
       duration: '5 min read',
       rating: 2,
     },
@@ -428,7 +428,7 @@ const homeScreendata = {
             </div>
         </div>
     `,
-      category: 'Immigration',
+      category: 'Immigration processing',
       duration: '5 min read',
       isNew: true,
       rating: 4,

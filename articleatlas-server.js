@@ -17,14 +17,14 @@ router.get('/lastUsedPrompts', (req, res) => {
   res.json({ lastUsedPrompts });
 });
 
-router.get(
-  '/current-articles',
-  handleArticlesRequest(homeScreendata.currentArticles)
-);
-router.get(
-  '/popular-articles',
-  handleArticlesRequest(homeScreendata.popularArticles)
-);
+router.get('/current-articles', (req, res) => {
+  const filterValue = req.query.filterValue || '';
+  handleArticlesRequest(homeScreendata.currentArticles, filterValue)(req, res);
+});
+router.get('/popular-articles', (req, res) => {
+  const filterValue = req.query.filterValue || '';
+  handleArticlesRequest(homeScreendata.popularArticles, filterValue)(req, res);
+});
 // Route: Prompts library with pagination
 router.get('/prompts-library', (req, res) => {
   const { limit, page } = req.query;
@@ -81,5 +81,42 @@ router.get(
     });
   })
 );
+// Route: Get unique categories from currentArticles & popularArticles
+router.get('/categories', (req, res) => {
+  const { currentArticles = [], popularArticles = [] } = homeScreendata;
+  const type = (req.query.type || '').toLowerCase();
+
+  let categories;
+  if (type === 'currentarticles') {
+    categories = [...new Set(currentArticles.map((a) => a.category))].map(
+      (category) => ({ category, categoryFrom: 'currentarticles' })
+    );
+  } else if (type === 'populararticles') {
+    categories = [...new Set(popularArticles.map((a) => a.category))].map(
+      (category) => ({ category, categoryFrom: 'populararticles' })
+    );
+  } else {
+    // Use a Map to preserve order and avoid duplicates, prioritizing currentArticles
+    const categoryMap = new Map();
+    currentArticles.forEach((a) => {
+      if (!categoryMap.has(a.category)) {
+        categoryMap.set(a.category, {
+          category: a.category,
+          categoryFrom: 'currentarticles',
+        });
+      }
+    });
+    popularArticles.forEach((a) => {
+      if (!categoryMap.has(a.category)) {
+        categoryMap.set(a.category, {
+          category: a.category,
+          categoryFrom: 'populararticles',
+        });
+      }
+    });
+    categories = Array.from(categoryMap.values());
+  }
+  res.json({ categories });
+});
 
 module.exports = router;
