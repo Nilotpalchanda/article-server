@@ -39,20 +39,36 @@ const getAllArticles = (homeScreendata) => [
 
 // Route: Get articles (current or popular)
 const handleArticlesRequest = (sourceArticles, filterValue) => (req, res) => {
-  const limit = parseInt(req.query.limit, 10);
-  let articles = getArticlesWithId(sourceArticles, limit);
+  const { limit = 0, page = 1 } = req.query;
+  const limitNum = parseInt(limit, 10) || 0;
+  const pageNum = parseInt(page, 10) || 1;
+
+  let articles = getArticlesWithId(sourceArticles);
 
   if (filterValue && filterValue.trim() !== '' && filterValue !== 'All') {
+    const filter = filterValue.toLowerCase();
     articles = articles.filter(
       (article) =>
-        article.category &&
-        article.category.toLowerCase().includes(filterValue.toLowerCase())
+        article.category && article.category.toLowerCase().includes(filter)
     );
   }
 
+  const total = articles.length;
+  let paginatedArticles = articles;
+  let hasMore = false;
+
+  if (limitNum > 0) {
+    const start = (pageNum - 1) * limitNum;
+    paginatedArticles = articles.slice(start, start + limitNum);
+    hasMore = start + limitNum < total;
+  }
+
   res.json({
-    articles: optimizeArticles(articles, 357, 192),
-    total: articles.length,
+    articles: optimizeArticles(paginatedArticles, 357, 192),
+    total,
+    page: pageNum,
+    limit: limitNum,
+    hasMore,
   });
 };
 
