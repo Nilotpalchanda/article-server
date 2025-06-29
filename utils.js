@@ -62,7 +62,6 @@ const handleArticlesRequest = (sourceArticles, filterValue) => (req, res) => {
     paginatedArticles = articles.slice(start, start + limitNum);
     hasMore = start + limitNum < total;
   }
-
   res.json({
     articles: optimizeArticles(paginatedArticles, 357, 192),
     total,
